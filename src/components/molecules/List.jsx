@@ -29,7 +29,11 @@ List.propTypes = {
       logo_url: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  textFilter: PropTypes.string.isRequired,
+  textFilter: PropTypes.string,
+};
+
+List.defaultProps = {
+  textFilter: '',
 };
 
 export default memo(List);
