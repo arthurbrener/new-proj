@@ -12,10 +12,10 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
-  const submitLogin = useCallback(() => {
+  const submitLogin = () => {
     console.log({ user, password });
     navigation.navigate('GamesList');
-  }, [user, password]);
+  };
 
   const forgotPassword = useCallback(() => {
     console.log('vish, esqueceu a senha');
@@ -25,7 +25,7 @@ const LoginForm = () => {
     <Form
       callback={submitLogin}
       containerStyle={styles.container}
-      buttonLabel="LOGIN"
+      buttonLabel="ENTRAR"
     >
       <Input setText={setUser} placeholder="Usuário" />
       <Input setText={setPassword} placeholder="Senha" isSecureText />
