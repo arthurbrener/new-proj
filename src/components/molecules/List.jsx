@@ -15,7 +15,7 @@ const List = ({ list, textFilter, sorted }) =>
     })
     .map((l) => (
       <ListItem key={l.id} bottomDivider>
-        <Avatar source={{ uri: l.logo_url }} />
+        <Avatar source={{ uri: l.logoUrl }} />
         <ListItem.Content>
           <ListItem.Title>{l.name}</ListItem.Title>
           <ListItem.Subtitle>{l.genre}</ListItem.Subtitle>
@@ -29,7 +29,7 @@ List.propTypes = {
       name: PropTypes.string.isRequired,
       genre: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
-      logo_url: PropTypes.string.isRequired,
+      logoUrl: PropTypes.string.isRequired,
     }),
   ).isRequired,
   textFilter: PropTypes.string,

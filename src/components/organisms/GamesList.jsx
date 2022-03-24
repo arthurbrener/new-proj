@@ -11,19 +11,19 @@ const gamesList = [
     name: 'Dota 2',
     genre: 'MOBA',
     id: 0,
-    logo_url: dota2Logo,
+    logoUrl: dota2Logo,
   },
   {
     name: 'Counter-Strike: Global Offensive',
     genre: 'FPS',
     id: 1,
-    logo_url: csgoLogo,
+    logoUrl: csgoLogo,
   },
   {
     name: 'League of Legends',
     genre: 'MOBA',
     id: 2,
-    logo_url: lolLogo,
+    logoUrl: lolLogo,
   },
 ];
 
