@@ -27,15 +27,15 @@ const gamesList = [
   },
 ];
 
-const FilterableList = () => {
+const GamesList = () => {
   const [filter, setFilter] = useState('');
 
   return (
     <>
       <Input setText={setFilter} placeholder="busque por nome ou gênero..." />
-      <List list={gamesList} textFilter={filter.trim()} />
+      <List list={gamesList} textFilter={filter.trim()} sorted />
     </>
   );
 };
 
-export default memo(FilterableList);
+export default memo(GamesList);

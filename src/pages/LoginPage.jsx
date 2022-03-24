@@ -6,7 +6,7 @@ import LoginForm from '../components/organisms/LoginForm';
 let styles;
 const logo = require('../../assets/logo.jpg');
 
-const Login = () => (
+const LoginPage = () => (
   <PageView style={styles.container}>
     <Text h4 style={styles.appTitle}>
       TONY COACH APP
@@ -31,4 +31,4 @@ styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default LoginPage;
