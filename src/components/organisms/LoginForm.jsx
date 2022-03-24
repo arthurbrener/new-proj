@@ -14,7 +14,7 @@ const LoginForm = () => {
 
   const submitLogin = () => {
     console.log({ user, password });
-    navigation.navigate('GamesList');
+    navigation.navigate('GamesListPage');
   };
 
   const forgotPassword = useCallback(() => {

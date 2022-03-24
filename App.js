@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Login from './src/pages/Login';
-import GamesList from './src/pages/GamesList';
+import LoginPage from './src/pages/LoginPage';
+import GamesListPage from './src/pages/GamesListPage';
 
 const Stack = createStackNavigator();
 
@@ -18,8 +18,8 @@ const App = () => (
           title: 'Login',
           headerShown: false,
         }}
-        name="Login"
-        component={Login}
+        name="LoginPage"
+        component={LoginPage}
       />
       <Stack.Screen
         options={{
@@ -27,8 +27,8 @@ const App = () => (
           title: 'Games',
           // headerLeft: () => null,
         }}
-        name="GamesList"
-        component={GamesList}
+        name="GamesListPage"
+        component={GamesListPage}
       />
     </Stack.Navigator>
     <StatusBar style="auto" />
