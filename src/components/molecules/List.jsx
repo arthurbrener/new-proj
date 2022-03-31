@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { PropTypes } from 'prop-types';
 import { Avatar, ListItem } from 'react-native-elements';
 
-const List = ({ list, textFilter, sorted }) =>
+const List = ({ list, textFilter, sortBy, order }) =>
   list
     .filter((l) => {
       if (!textFilter.length) return list;
@@ -10,8 +10,11 @@ const List = ({ list, textFilter, sorted }) =>
       return l.name.search(reg) >= 0 || l.genre.search(reg) >= 0;
     })
     .sort((a, b) => {
-      if (!sorted) return 0;
-      return a.name < b.name ? -1 : Number(a.name > b.name);
+      if (!sortBy) return 0;
+      if (order === 'asc') {
+        return a[sortBy] < b[sortBy] ? -1 : Number(a[sortBy] > b[sortBy]);
+      }
+      return a[sortBy] > b[sortBy] ? -1 : Number(a[sortBy] < b[sortBy]);
     })
     .map((l) => (
       <ListItem key={l.id} bottomDivider>
@@ -33,12 +36,14 @@ List.propTypes = {
     }),
   ).isRequired,
   textFilter: PropTypes.string,
-  sorted: PropTypes.bool,
+  sortBy: PropTypes.string,
+  order: PropTypes.oneOf(['asc', 'desc']),
 };
 
 List.defaultProps = {
   textFilter: '',
-  sorted: false,
+  sortBy: '',
+  order: 'asc',
 };
 
 export default memo(List);

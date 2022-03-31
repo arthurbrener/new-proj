@@ -33,7 +33,7 @@ const GamesList = () => {
   return (
     <>
       <Input setText={setFilter} placeholder="busque por nome ou gênero..." />
-      <List list={gamesList} textFilter={filter.trim()} sorted />
+      <List list={gamesList} textFilter={filter.trim()} sortBy="name" />
     </>
   );
 };
