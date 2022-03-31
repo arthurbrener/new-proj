@@ -1,20 +1,19 @@
-import { memo, useState, useCallback } from 'react';
+import { memo, useState, useCallback, useContext } from 'react';
 import { StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import Input from '../atoms/Input';
 import ButtonLink from '../atoms/ButtonLink';
 import Form from '../molecules/Form';
+import { UserContext } from '../../contexts/user/UserContext';
 
 let styles;
 
 const LoginForm = () => {
-  const [user, setUser] = useState('');
+  const [, { login }] = useContext(UserContext);
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigation = useNavigation();
 
   const submitLogin = () => {
-    console.log({ user, password });
-    navigation.navigate('GamesListPage');
+    login({ username, password });
   };
 
   const forgotPassword = useCallback(() => {
@@ -27,7 +26,7 @@ const LoginForm = () => {
       containerStyle={styles.container}
       buttonLabel="ENTRAR"
     >
-      <Input setText={setUser} placeholder="Usuário" />
+      <Input setText={setUsername} placeholder="Usuário" />
       <Input setText={setPassword} placeholder="Senha" isSecureText />
       <ButtonLink
         callback={forgotPassword}
