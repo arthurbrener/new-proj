@@ -25,7 +25,6 @@ const handleAuth = async (dispatch, data, navigation) => {
 };
 
 const UserContext = createContext([defaultUser, {}]);
-const UserConsumer = UserContext.Consumer;
 const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(UserReducer, {
     ...defaultUser,
@@ -55,4 +54,4 @@ UserProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export { UserContext, UserProvider, UserConsumer, actions };
+export { UserContext, UserProvider, actions };
