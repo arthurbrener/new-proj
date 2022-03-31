@@ -8,7 +8,7 @@ import { UserContext } from '../../contexts/user/UserContext';
 let styles;
 
 const LoginForm = () => {
-  const [, { login }] = useContext(UserContext);
+  const [{ isLoading }, { login }] = useContext(UserContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -25,6 +25,8 @@ const LoginForm = () => {
       callback={submitLogin}
       containerStyle={styles.container}
       buttonLabel="ENTRAR"
+      hasLoading
+      isLoading={isLoading}
     >
       <Input setText={setUsername} placeholder="Usuário" />
       <Input setText={setPassword} placeholder="Senha" isSecureText />

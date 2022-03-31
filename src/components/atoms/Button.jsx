@@ -1,12 +1,21 @@
 import { memo } from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import { PropTypes } from 'prop-types';
 
 let styles;
 
-const Button = ({ callback, label, style }) => (
+const Button = ({ callback, label, style, hasLoading, isLoading }) => (
   <TouchableOpacity style={[styles.button, style]} onPress={callback}>
-    <Text style={styles.buttonLabel}>{label}</Text>
+    {hasLoading && isLoading ? (
+      <ActivityIndicator color="#fff" />
+    ) : (
+      <Text style={styles.buttonLabel}>{label}</Text>
+    )}
   </TouchableOpacity>
 );
 
@@ -17,7 +26,7 @@ styles = StyleSheet.create({
     borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: '#772ce8',
   },
 
   buttonLabel: { color: 'white' },
@@ -27,11 +36,15 @@ Button.propTypes = {
   callback: PropTypes.func.isRequired,
   label: PropTypes.string,
   style: PropTypes.number,
+  hasLoading: PropTypes.bool,
+  isLoading: PropTypes.bool,
 };
 
 Button.defaultProps = {
   label: '',
   style: 0,
+  hasLoading: false,
+  isLoading: false,
 };
 
 export default memo(Button);

@@ -4,10 +4,23 @@ import Button from '../atoms/Button';
 
 let styles;
 
-const Form = ({ children, containerStyle, buttonLabel, callback }) => (
+const Form = ({
+  children,
+  containerStyle,
+  buttonLabel,
+  callback,
+  hasLoading,
+  isLoading,
+}) => (
   <View style={containerStyle}>
     {children}
-    <Button callback={callback} label={buttonLabel} style={styles.button} />
+    <Button
+      callback={callback}
+      label={buttonLabel}
+      style={styles.button}
+      hasLoading={hasLoading}
+      isLoading={isLoading}
+    />
   </View>
 );
 
@@ -20,11 +33,15 @@ Form.propTypes = {
   containerStyle: PropTypes.number,
   buttonLabel: PropTypes.string,
   callback: PropTypes.func.isRequired,
+  hasLoading: PropTypes.bool,
+  isLoading: PropTypes.bool,
 };
 
 Form.defaultProps = {
   containerStyle: 0,
   buttonLabel: '',
+  hasLoading: false,
+  isLoading: false,
 };
 
 export default Form;
