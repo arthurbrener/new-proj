@@ -33,7 +33,7 @@ List.propTypes = {
       genre: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
       logoUrl: PropTypes.string.isRequired,
-    })
+    }),
   ).isRequired,
   textFilter: PropTypes.string,
   sortBy: PropTypes.string,
