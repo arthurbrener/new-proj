@@ -11,10 +11,10 @@ const List = ({ list, textFilter, sortBy, order }) =>
     })
     .sort((a, b) => {
       if (!sortBy) return 0;
-      if (order === 'asc') {
-        return a[sortBy] < b[sortBy] ? -1 : Number(a[sortBy] > b[sortBy]);
+      if (order === 'desc') {
+        return a[sortBy] > b[sortBy] ? -1 : Number(a[sortBy] < b[sortBy]);
       }
-      return a[sortBy] > b[sortBy] ? -1 : Number(a[sortBy] < b[sortBy]);
+      return a[sortBy] < b[sortBy] ? -1 : Number(a[sortBy] > b[sortBy]);
     })
     .map((l) => (
       <ListItem key={l.id} bottomDivider>
@@ -33,7 +33,7 @@ List.propTypes = {
       genre: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
       logoUrl: PropTypes.string.isRequired,
-    }),
+    })
   ).isRequired,
   textFilter: PropTypes.string,
   sortBy: PropTypes.string,
