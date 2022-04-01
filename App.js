@@ -28,7 +28,7 @@ const App = () => {
               title: 'Login',
               headerShown: false,
             }}
-            name="LoginPage"
+            name="login"
             component={LoginPage}
           />
           <Stack.Screen
@@ -37,7 +37,7 @@ const App = () => {
               title: 'Games',
               // headerLeft: () => null,
             }}
-            name="GamesListPage"
+            name="gameslist"
             component={GamesListPage}
           />
         </Stack.Navigator>

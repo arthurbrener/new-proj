@@ -11,7 +11,7 @@ const handleAuth = async (dispatch, data, navigation) => {
 
   if (response?.success) {
     dispatch({ type: LOGIN_SUCCESS, data });
-    navigation.navigate('GamesListPage');
+    navigation.navigate('gameslist');
   } else {
     dispatch({
       type: LOGIN_FAILURE,
