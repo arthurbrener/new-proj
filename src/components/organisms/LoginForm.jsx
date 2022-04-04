@@ -1,13 +1,13 @@
 import { memo, useState, useCallback, useContext } from 'react';
-import { StyleSheet } from 'react-native';
 import Input from '../atoms/Input';
 import ButtonLink from '../atoms/ButtonLink';
 import Form from '../molecules/Form';
 import { UserContext } from '../../contexts/user/UserContext';
-
-let styles;
+import useResponsiveStyles from '../../hooks/responsiveStyle';
 
 const LoginForm = () => {
+  const styles = useResponsiveStyles(responsiveStyle);
+
   const [{ isLoading }, { login }] = useContext(UserContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -39,14 +39,25 @@ const LoginForm = () => {
   );
 };
 
-styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const responsiveStyle = {
+  web: {
+    container: {
+      width: '40%',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
 
-  forgotLink: { marginTop: 10 },
-});
+    forgotLink: { marginTop: 10 },
+  },
+  mobile: {
+    container: {
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+
+    forgotLink: { marginTop: 10 },
+  },
+};
 
 export default memo(LoginForm);
