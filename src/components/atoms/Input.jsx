@@ -1,24 +1,26 @@
 import { memo } from 'react';
-import { StyleSheet } from 'react-native';
 import { PropTypes } from 'prop-types';
 import { Input as RNEInput } from 'react-native-elements';
+import useResponsiveStyles from '../../hooks/responsiveStyle';
 
-let styles;
+const Input = ({ style, placeholder, isSecureText, setText }) => {
+  const styles = useResponsiveStyles(responsiveStyle);
 
-const Input = ({ style, placeholder, isSecureText, setText }) => (
-  <RNEInput
-    style={[styles.input, style]}
-    containerStyle={styles.container}
-    placeholder={placeholder}
-    placeholderTextColor="#0000008a"
-    secureTextEntry={isSecureText}
-    onChangeText={(text) => setText(text)}
-  />
-);
+  return (
+    <RNEInput
+      style={[styles.input, style]}
+      containerStyle={styles.container}
+      placeholder={placeholder}
+      placeholderTextColor="#0000008a"
+      secureTextEntry={isSecureText}
+      onChangeText={(text) => setText(text)}
+    />
+  );
+};
 
-styles = StyleSheet.create({
+const responsiveStyle = {
   container: {
-    paddingHorizontal: -10,
+    // paddingHorizontal: -10,
   },
 
   input: {
@@ -26,7 +28,7 @@ styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingBottom: 11,
   },
-});
+};
 
 Input.propTypes = {
   style: PropTypes.number,

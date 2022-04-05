@@ -1,23 +1,26 @@
 import { memo } from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import { PropTypes } from 'prop-types';
+import useResponsiveStyles from '../../hooks/responsiveStyle';
 
-let styles;
+const ButtonLink = ({ callback, label, style }) => {
+  const styles = useResponsiveStyles(responsiveStyle);
 
-const ButtonLink = ({ callback, label, style }) => (
-  <TouchableOpacity style={[styles.link, style]} onPress={callback}>
-    <Text style={styles.linkLabel}>{label}</Text>
-  </TouchableOpacity>
-);
+  return (
+    <TouchableOpacity style={[styles.link, style]} onPress={callback}>
+      <Text style={styles.linkLabel}>{label}</Text>
+    </TouchableOpacity>
+  );
+};
 
-styles = StyleSheet.create({
+const responsiveStyle = {
   link: {
     color: '#8ab4f8',
     textDecorationLine: 'underline',
   },
 
   linkLabel: { color: '#8ab4f8' },
-});
+};
 
 ButtonLink.propTypes = {
   callback: PropTypes.func.isRequired,

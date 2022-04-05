@@ -1,25 +1,23 @@
 import { memo } from 'react';
-import {
-  ActivityIndicator,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import { ActivityIndicator, Text, TouchableOpacity } from 'react-native';
 import { PropTypes } from 'prop-types';
+import useResponsiveStyles from '../../hooks/responsiveStyle';
 
-let styles;
+const Button = ({ callback, label, style, hasLoading, isLoading }) => {
+  const styles = useResponsiveStyles(responsiveStyle);
 
-const Button = ({ callback, label, style, hasLoading, isLoading }) => (
-  <TouchableOpacity style={[styles.button, style]} onPress={callback}>
-    {hasLoading && isLoading ? (
-      <ActivityIndicator color="#fff" />
-    ) : (
-      <Text style={styles.buttonLabel}>{label}</Text>
-    )}
-  </TouchableOpacity>
-);
+  return (
+    <TouchableOpacity style={[styles.button, style]} onPress={callback}>
+      {hasLoading && isLoading ? (
+        <ActivityIndicator color="#fff" />
+      ) : (
+        <Text style={styles.buttonLabel}>{label}</Text>
+      )}
+    </TouchableOpacity>
+  );
+};
 
-styles = StyleSheet.create({
+const responsiveStyle = {
   button: {
     width: '100%',
     height: 50,
@@ -30,7 +28,7 @@ styles = StyleSheet.create({
   },
 
   buttonLabel: { color: 'white' },
-});
+};
 
 Button.propTypes = {
   callback: PropTypes.func.isRequired,

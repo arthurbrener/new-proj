@@ -1,8 +1,7 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { PropTypes } from 'prop-types';
 import Button from '../atoms/Button';
-
-let styles;
+import useResponsiveStyles from '../../hooks/responsiveStyle';
 
 const Form = ({
   children,
@@ -11,22 +10,26 @@ const Form = ({
   callback,
   hasLoading,
   isLoading,
-}) => (
-  <View style={containerStyle}>
-    {children}
-    <Button
-      callback={callback}
-      label={buttonLabel}
-      style={styles.button}
-      hasLoading={hasLoading}
-      isLoading={isLoading}
-    />
-  </View>
-);
+}) => {
+  const styles = useResponsiveStyles(responsiveStyle);
 
-styles = StyleSheet.create({
+  return (
+    <View style={containerStyle}>
+      {children}
+      <Button
+        callback={callback}
+        label={buttonLabel}
+        style={styles.button}
+        hasLoading={hasLoading}
+        isLoading={isLoading}
+      />
+    </View>
+  );
+};
+
+const responsiveStyle = {
   button: { marginTop: 40 },
-});
+};
 
 Form.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,

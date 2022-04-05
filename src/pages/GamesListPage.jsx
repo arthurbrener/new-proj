@@ -1,13 +1,12 @@
 import { useContext } from 'react';
-import { StyleSheet } from 'react-native';
 import { Text } from 'react-native-elements';
 import PageView from '../components/atoms/PageView';
 import GamesList from '../components/organisms/GamesList';
 import { UserContext } from '../contexts/user/UserContext';
-
-let styles;
+import useResponsiveStyles from '../hooks/responsiveStyle';
 
 const GamesListPage = () => {
+  const styles = useResponsiveStyles(responsiveStyle);
   const [{ username }] = useContext(UserContext);
 
   return (
@@ -20,8 +19,8 @@ const GamesListPage = () => {
   );
 };
 
-styles = StyleSheet.create({
+const responsiveStyle = {
   text: { marginBottom: 10 },
-});
+};
 
 export default GamesListPage;

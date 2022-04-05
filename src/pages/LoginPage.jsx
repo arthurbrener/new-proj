@@ -1,22 +1,25 @@
-import { StyleSheet } from 'react-native';
 import { Text, Image } from 'react-native-elements';
 import PageView from '../components/atoms/PageView';
 import LoginForm from '../components/organisms/LoginForm';
+import useResponsiveStyles from '../hooks/responsiveStyle';
 
-let styles;
 const logo = require('../../assets/logo.jpg');
 
-const LoginPage = () => (
-  <PageView style={styles.container}>
-    <Text h4 style={styles.appTitle}>
-      TONY COACH APP
-    </Text>
-    <Image style={styles.image} source={logo} />
-    <LoginForm />
-  </PageView>
-);
+const LoginPage = () => {
+  const styles = useResponsiveStyles(responsiveStyle);
 
-styles = StyleSheet.create({
+  return (
+    <PageView style={styles.container}>
+      <Text h4 style={styles.appTitle}>
+        TONY COACH APP
+      </Text>
+      <Image style={styles.image} source={logo} />
+      <LoginForm />
+    </PageView>
+  );
+};
+
+const responsiveStyle = {
   container: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -29,6 +32,6 @@ styles = StyleSheet.create({
     width: 88,
     height: 88,
   },
-});
+};
 
 export default LoginPage;

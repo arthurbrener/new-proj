@@ -1,20 +1,21 @@
 import { memo } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { PropTypes } from 'prop-types';
+import useResponsiveStyles from '../../hooks/responsiveStyle';
 
-let styles;
+const PageView = ({ style, children }) => {
+  const styles = useResponsiveStyles(responsiveStyle);
 
-const PageView = ({ style, children }) => (
-  <View style={[styles.container, style]}>{children}</View>
-);
+  return <View style={[styles.container, style]}>{children}</View>;
+};
 
-styles = StyleSheet.create({
+const responsiveStyle = {
   container: {
     flex: 1,
     backgroundColor: '#FFFDFA',
     padding: 30,
   },
-});
+};
 
 PageView.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
