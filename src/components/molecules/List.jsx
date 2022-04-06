@@ -18,7 +18,7 @@ const List = ({ list, textFilter, sortBy, order }) =>
     })
     .map((l) => (
       <ListItem key={l.id} bottomDivider>
-        <Avatar source={{ uri: l.logoUrl }} />
+        <Avatar source={l.logoUrl} />
         <ListItem.Content>
           <ListItem.Title>{l.name}</ListItem.Title>
           <ListItem.Subtitle>{l.genre}</ListItem.Subtitle>
