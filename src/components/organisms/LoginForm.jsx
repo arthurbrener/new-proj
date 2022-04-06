@@ -1,4 +1,4 @@
-import { memo, useState, useCallback, useContext } from 'react';
+import { useState, useCallback, useContext } from 'react';
 import Input from '../atoms/Input';
 import ButtonLink from '../atoms/ButtonLink';
 import Form from '../molecules/Form';
@@ -60,4 +60,4 @@ const responsiveStyle = {
   },
 };
 
-export default memo(LoginForm);
+export default LoginForm;

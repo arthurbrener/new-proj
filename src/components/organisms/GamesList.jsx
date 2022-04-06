@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { useState } from 'react';
 import Input from '../atoms/Input';
 import List from '../molecules/List';
 
@@ -38,4 +38,4 @@ const GamesList = () => {
   );
 };
 
-export default memo(GamesList);
+export default GamesList;
