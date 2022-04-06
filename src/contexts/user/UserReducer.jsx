@@ -6,7 +6,6 @@ const defaultUser = {
   isLoggedIn: false,
   isRegistered: false,
   isLoading: false,
-  keepLoggedIn: true,
 };
 
 const actions = {
@@ -27,6 +26,7 @@ const UserReducer = (state, { type, data }) => {
         ...state,
         ...data,
         isLoading: false,
+        isLoggedIn: true,
       };
     case actions.LOGIN_FAILURE:
       return {
