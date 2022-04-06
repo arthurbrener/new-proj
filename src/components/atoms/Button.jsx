@@ -24,7 +24,7 @@ const responsiveStyle = {
     borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#772ce8',
+    backgroundColor: '#2089DA',
   },
 
   buttonLabel: { color: 'white' },
