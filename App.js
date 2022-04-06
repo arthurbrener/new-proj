@@ -28,8 +28,8 @@ const App = () => {
           >
             <Stack.Screen
               options={{
-                headerTitleAlign: 'center',
-                title: 'Login',
+                // headerTitleAlign: 'center',
+                // title: 'Login',
                 headerShown: false,
               }}
               name="login"
@@ -37,8 +37,8 @@ const App = () => {
             />
             <Stack.Screen
               options={{
-                headerTitleAlign: 'center',
-                title: 'Games',
+                // headerTitleAlign: 'center',
+                // title: 'Games',
                 // headerLeft: () => null,
                 headerShown: false,
               }}
