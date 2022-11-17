@@ -11,7 +11,7 @@ const LoginPage = () => {
   return (
     <PageView style={styles.container}>
       <Text h4 style={styles.appTitle}>
-        TONY COACH APP
+        TONY VIRGEM COACH APP
       </Text>
       <Image style={styles.image} source={logo} />
       <LoginForm />
